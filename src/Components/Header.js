@@ -226,6 +226,11 @@ const Header = ({ gone }) => {
 							class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
 							{t("Translate.4")}
 						</a>
+						<a
+							href='/package'
+							class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
+							{t("Translate.15")}
+						</a>
 					</div>
 				</nav>
 			</div>
