@@ -2,6 +2,7 @@
   "name": "gagarian_frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy":"https://api.gagarian.com",
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
     "@mui/icons-material": "^5.2.5",

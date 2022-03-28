@@ -1,6 +1,21 @@
 import React from "react";
-
+import { useForm } from "react-hook-form";
+import { registerUser } from "../../api/api";
 const Signup = () => {
+	const { register, handleSubmit } = useForm();
+	const onSubmit = (data) => {
+		// dispatch(loginUser(data));
+		console.log(data);
+		fetch(data);
+	};
+	const fetch = async (data) => {
+		try {
+			const response = await registerUser(data);
+			console.log(response);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<div>
 			<div className='min-w-screen min-h-screen  flex items-center justify-center px-5 py-5'>
@@ -14,7 +29,6 @@ const Signup = () => {
 								data-name='Layer 1'
 								xmlns='http://www.w3.org/2000/svg'
 								width='100%'
-								height='auto'
 								viewBox='0 0 744.84799 747.07702'>
 								<path
 									id='fa3b9e12-7275-481e-bee9-64fd9595a50d'
@@ -38,7 +52,7 @@ const Signup = () => {
 									fill='#e6e6e6'
 								/>
 								<path
-									id='b2715b96-3117-487c-acc0-20904544b5b7'
+									id='b2715b96•••-3117-487c-acc0-20904544b5b7'
 									data-name='Path 23'
 									d='M680.97,93.3355h-31a23.02,23.02,0,0,1-21.316,31.714H492.589a23.02,23.02,0,0,1-21.314-31.714H442.319a48.454,48.454,0,0,0-48.454,48.454v614.107a48.454,48.454,0,0,0,48.454,48.454H680.97a48.454,48.454,0,0,0,48.454-48.454h0V141.7885a48.454,48.454,0,0,0-48.454-48.453Z'
 									transform='translate(-227.576 -76.46149)'
@@ -217,59 +231,28 @@ const Signup = () => {
 								<h1 className='font-bold text-3xl text-gray-900'>REGISTER</h1>
 								<p>Enter your information to register</p>
 							</div>
-							<div>
-								<div className='flex -mx-3'>
-									<div className='w-1/2 px-3 mb-5'>
-										<label for='' className='text-xs font-semibold px-1'>
-											First name
-										</label>
-										<div className='flex'>
-											<div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-												<i className='mdi mdi-account-outline text-gray-400 text-lg'></i>
-											</div>
-											<input
-												type='text'
-												className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
-												placeholder='John'
-											/>
-										</div>
-									</div>
-									<div className='w-1/2 px-3 mb-5'>
-										<label for='' className='text-xs font-semibold px-1'>
-											Last name
-										</label>
-										<div className='flex'>
-											<div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
-												<i className='mdi mdi-account-outline text-gray-400 text-lg'></i>
-											</div>
-											<input
-												type='text'
-												className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
-												placeholder='Smith'
-											/>
-										</div>
-									</div>
-								</div>
+							<form onSubmit={handleSubmit(onSubmit)}>
 								<div className='flex -mx-3'>
 									<div className='w-full px-3 mb-5'>
-										<label for='' className='text-xs font-semibold px-1'>
-											Email
+										<label htmlFor='' className='text-xs font-semibold px-1'>
+											Username
 										</label>
 										<div className='flex'>
 											<div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
 												<i className='mdi mdi-email-outline text-gray-400 text-lg'></i>
 											</div>
 											<input
-												type='email'
+												type='username'
 												className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
-												placeholder='johnsmith@example.com'
+												placeholder='username'
+												{...register("username", { required: true })}
 											/>
 										</div>
 									</div>
 								</div>
 								<div className='flex -mx-3'>
-									<div className='w-full px-3 mb-12'>
-										<label for='' className='text-xs font-semibold px-1'>
+									<div className='w-full px-3 mb-5'>
+										<label htmlFor='' className='text-xs font-semibold px-1'>
 											Password
 										</label>
 										<div className='flex'>
@@ -280,6 +263,25 @@ const Signup = () => {
 												type='password'
 												className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
 												placeholder='************'
+												{...register("password1", { required: true })}
+											/>
+										</div>
+									</div>
+								</div>
+								<div className='flex -mx-3'>
+									<div className='w-full px-3 mb-5'>
+										<label htmlFor='' className='text-xs font-semibold px-1'>
+											Confirmation Password
+										</label>
+										<div className='flex'>
+											<div className='w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center'>
+												<i className='mdi mdi-lock-outline text-gray-400 text-lg'></i>
+											</div>
+											<input
+												type='password'
+												className='w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500'
+												placeholder='************'
+												{...register("password2", { required: true })}
 											/>
 										</div>
 									</div>
@@ -291,7 +293,7 @@ const Signup = () => {
 										</button>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>

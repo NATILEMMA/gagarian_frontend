@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const requestUrl = "https://gagarianrest.herokuapp.com";
+const requestUrl = "https://api.gagarian.com";
 
 function getCatagories() {
 	var config = {
@@ -84,6 +84,17 @@ function getUser(token) {
 	};
 	return axios(config);
 }
+function registerUser(userData) {
+	var header = { "Content-Type": "application/json" };
+	var config = {
+		method: "post",
+		url: "/rest-auth/registration/",
+		headers: header,
+		data: userData,
+	};
+
+	return axios(config);
+}
 export {
 	getCatagories,
 	userLogin,
@@ -91,4 +102,5 @@ export {
 	getAllProductsByCatagories,
 	getProduct,
 	getUser,
+	registerUser,
 };

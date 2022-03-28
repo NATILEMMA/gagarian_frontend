@@ -54,7 +54,6 @@ const Dashboard = ({ toggle, handleToggle }) => {
 	}, [dispatch]);
 
 	useEffect(() => {
-		console.log("");
 		if (isFetching) {
 			toast.loading("Waiting...", {
 				id: toastWaiting,

@@ -18,9 +18,9 @@ export const loginUser = createAsyncThunk(
 			const response = await userLogin(username, password);
 			let token = response.data.key;
 			const user = await getUser(token);
-			console.log(user.data);
+			// console.log(user.data);
 			localStorage.setItem("token", response.data.key);
-			console.log(_.merge(response.data, user.data));
+			// console.log(_.merge(response.data, user.data));
 
 			return _.merge(response.data, { user: user.data });
 		} catch (error) {
