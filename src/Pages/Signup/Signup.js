@@ -1,21 +1,60 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { registerUser } from "../../api/api";
+import { useDispatch, useSelector } from "react-redux";
+import _ from "lodash";
+import {
+	loginUser,
+	userSelector,
+	clearState,
+} from "../../Services/Slices/userSlice";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 const Signup = () => {
+	const dispatch = useDispatch();
 	const { register, handleSubmit } = useForm();
+	const { isFetching, isError, errorMessage, isSuccess, token } =
+		useSelector(userSelector);
 	const onSubmit = (data) => {
 		// dispatch(loginUser(data));
 		console.log(data);
 		fetch(data);
 	};
+	let navigate = useNavigate();
+
 	const fetch = async (data) => {
 		try {
 			const response = await registerUser(data);
-			console.log(response);
+			// console.log(response);
+			const loginData = {
+				username: data.username,
+				password: data.password1,
+			};
+			toast.success("Register");
+			dispatch(loginUser(loginData));
 		} catch (error) {
 			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		if (isError) {
+			toast.error(errorMessage);
+			dispatch(clearState());
+		}
+
+		if (isSuccess && !_.isNil(token)) {
+			// history.push("/");
+			// {
+			// }
+			setTimeout(() => {
+				// setLoading(false);
+			}, 3000);
+			navigate("/");
+			// toast.success("Login");
+		}
+	}, [isError, isSuccess]);
 	return (
 		<div>
 			<div className='min-w-screen min-h-screen  flex items-center justify-center px-5 py-5'>

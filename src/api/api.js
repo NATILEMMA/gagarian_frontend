@@ -12,23 +12,6 @@ function getCatagories() {
 	// return new
 }
 
-function userLogin(username, password) {
-	var data = JSON.stringify({
-		username: username,
-		password: password,
-	});
-
-	var config = {
-		method: "post",
-		url: `${requestUrl}/rest-auth/login/`,
-		headers: {
-			"Content-Type": "application/json",
-		},
-		data: data,
-	};
-	return axios(config);
-}
-
 function getAllProducts(id) {
 	var config = {
 		method: "get",
@@ -95,6 +78,23 @@ function registerUser(userData) {
 
 	return axios(config);
 }
+function userLogin(username, password) {
+	var data = JSON.stringify({
+		username: username,
+		password: password,
+	});
+
+	var config = {
+		method: "post",
+		url: "/rest-auth/login/",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		data: data,
+	};
+	return axios(config);
+}
+
 export {
 	getCatagories,
 	userLogin,
