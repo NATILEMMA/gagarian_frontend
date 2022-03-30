@@ -9,7 +9,7 @@ const Paginate = ({ pageCount, handlePageClick }) => {
 			nextLabel={"next"}
 			breakLabel='...'
 			pageCount={pageCount}
-			marginPagesDisplayed={3}
+			marginPagesDisplayed={4}
 			onPageChange={handlePageClick}
 			containerClassName={"flex"}
 			breakClassName={

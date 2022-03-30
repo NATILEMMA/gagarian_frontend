@@ -98,19 +98,29 @@ const Dashboard = ({ toggle, handleToggle }) => {
 						<HeroSection />
 					</Carousel>
 					<Catagories />
-					<DashboardSampleProductBar />
-
-					<div className='container px-5 py-24 mx-auto'>
-						<div className='flex flex-wrap -m-4'>
-							{result !== null
-								? result.map((item, index) => (
-										<DashboardCard key={index} {...item} />
-								  ))
-								: ""}
+					{/* <DashboardSampleProductBar /> */}
+					<div className='flex flex-row justify-center items-center '>
+						<div>
+							<a
+								className='text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300'
+								href='/catagories?cg=Injera'>
+								Our Products
+							</a>
+						</div>
+						<div className='flex md:hidden'>
+							<button
+								type='button'
+								className='text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400'
+								aria-label='toggle menu'>
+								<svg viewBox='0 0 24 24' className='w-6 h-6 fill-current'>
+									<path
+										fillRule='evenodd'
+										d='M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z'></path>
+								</svg>
+							</button>
 						</div>
 					</div>
-
-					<Paginate pageCount={pageCount} handlePageClick={handlePageClick} />
+					{/* <Paginate className='' pageCount={pageCount} handlePageClick={handlePageClick} /> */}
 				</section>
 			</Main>
 		</div>

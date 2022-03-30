@@ -70,7 +70,7 @@ const Header = ({ gone }) => {
 				{/* <div class='relative flex grid items-center grid-cols-2 lg:grid-cols-3'> */}
 				<div className='container px-6  mx-auto md:flex md:justify-between md:items-center'>
 					<div className='flex justify-center md:block'>
-						<a
+						{/* <a
 							className='relative text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300'
 							href='#'>
 							<svg
@@ -82,9 +82,9 @@ const Header = ({ gone }) => {
 								viewBox='0 0 16 16'>
 								<path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z' />
 							</svg>
-						</a>
+						</a> */}
 					</div>
-					<div className='flex items-center justify-between'>
+					<div className='flex items-center '>
 						<div>
 							<a
 								className='text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300'

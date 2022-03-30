@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 import HashLoader from "react-spinners/HashLoader";
 import ScrollIntoView from "./Middlewares/ScrollIntoView";
 import Package from "./Pages/Package/Package";
+import CommingSoon from "./Components/CommingSoon";
 
 function App() {
 	let navigate = useNavigate();
@@ -55,10 +56,12 @@ function App() {
 							<Route
 								index
 								element={
-									<Dashboard toggle={toggle} handleToggle={handleToggle} />
+									<>
+										<Dashboard toggle={toggle} handleToggle={handleToggle} />
+									</>
 								}
 							/>
-							<Route path='signup' element={<Signup />} />
+							{/* <Route path='signup' element={<Signup />} /> */}
 
 							<Route path='login' element={<Login />} />
 							<Route
@@ -68,16 +71,17 @@ function App() {
 								}
 							/>
 							<Route path='/item/:slug' element={<Item />} />
-							<Route path='/cart' element={<Cart />} />
-							<Route path='/purchase' element={<Purchase />} />
-							<Route path='/package' element={<Package />} />
+							{/* <Route path='/cart' element={<Cart />} /> */}
+							{/* <Route path='/purchase' element={<Purchase />} /> */}
+							{/* <Route path='/package' element={<Package />} /> */}
 
 							<Route
 								path='*'
 								element={
-									<main style={{ padding: "1rem" }}>
-										<p>There's nothing here!</p>
-									</main>
+									<CommingSoon />
+									// <main style={{ padding: "1rem" }}>
+									// 	<p>There's nothing here!</p>
+									// </main>
 								}
 							/>
 						</Route>
